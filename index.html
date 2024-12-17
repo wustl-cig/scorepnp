@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Plug-and-Play Priors as a Score-Based Method">
+    <meta name="author" content="Chicago Y. Park,
+    Yuyang Hu,
+    Michael T. McCann,
+    Cristina Garcia-Cardona,
+    Brendt Wohlberg,
+    Ulugbek S. Kamilov">
+
+    <title>Plug-and-Play Priors as a Score-Based Method</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>Plug-and-Play Priors as a Score-Based Method</h2> <h2></h2>
+    <h3></h3> 
+            <p class="abstract">Unifying PnP and Score-Based Methods: Reusing Diffusion Priors for Imaging</p>
+    <hr>
+    <p class="authors">
+        <a href="https://chicagopark.github.io"> Chicago Y. Park<sup>1</sup></a>,
+		<a href="https://hu-yuyang.github.io/"> Yuyang Hu<sup>1</sup></a>,
+        <a href="https://michael-t-mccann.github.io/"> Michael T. McCann<sup>2</sup></a>,<br>
+        <a href="https://scholar.google.com/citations?user=WIxIUC4AAAAJ&hl=en"> Cristina Garcia-Cardona<sup>3</sup></a>,
+        <a href="https://brendt.wohlberg.net/"> Brendt Wohlberg<sup>3</sup></a>,
+        <a href="https://ukmlv.github.io/"> Ulugbek S. Kamilov<sup>1</sup></a> </br>
+    </p>
+    <p>
+        <a><sup>1</sup>Computational Imaging Group, Washington University in St.Louis</a></br>
+        <a><sup>2</sup>Theoretical Division, Los Alamos National Laboratory</a></br>
+        <a><sup>3</sup>Computer, Computational and Statistical Sciences Division, Los Alamos National Laboratory</a></br>
+		</br>
+
+    </p>
+
+    <div class="btn-group" role="group" aria-label="Top menu">
+        
+        <a class="btn btn-primary" href="https://arxiv.org/abs/2412.11108">Paper (arxiv)</a>
+        <a class="btn btn-primary" href="https://github.com/wustl-cig/score_pnp">Code</a>      
+    </div>
+
+    
+</div>
+
+<div class="container">
+    <div class="section">
+
+     <div class="row align-items-center">
+		<div class="col justify-content-center text-center">
+        		<img src="./img/main_figure.png" style="width:85%" alt="Banner">
+                <p><b>Figure 1:</b> Visual comparison of three classical PnP methods for motion deblurring on color images. DPIR, PnP-ADMM, and RED are compared with CNN-based and score-based diffusion model(SBM)-based priors. The figure also includes the results of DiffPIR using the same SBM as the prior. Note how our framework enables the direct comparison of DiffPIR with three classical PnP methods using exactly the same neural network as the prior.</p>
+            </div>
+        </div>
+
+       
+
+        <br>
+        <h2>Abstract</h2>
+        <hr>
+        <p>
+            Plug-and-play (PnP) methods are extensively used for solving imaging inverse problems by integrating physical measurement models with pre-trained deep denoisers as priors. Score-based diffusion models (SBMs) have recently emerged as a powerful framework for image generation by training deep denoisers to represent the score of the image prior. While both PnP and SBMs use deep denoisers, the score-based nature of PnP is unexplored in the literature due to its distinct origins rooted in proximal optimization. This letter introduces a novel view of PnP as a score-based method, a perspective that enables the re-use of powerful SBMs within classical PnP algorithms without retraining. We present a set of mathematical relationships for adapting popular SBMs as priors within PnP. We show that this approach enables a direct comparison between PnP and SBM-based reconstruction methods using the same neural network as the prior.
+        </p>
+    </div>
+
+
+    <div class="section">
+        <h2> Score-Based Denoising in Classical PnP Algorithms</h2>
+        <hr>
+
+        <div class="row align-items-center">
+			<div class="col justify-content-center text-left">
+                <img src="img/algorithm.png" style="width:100%" alt="Banner">
+                <p><b>Algorithms:</b> The parameter matching algorithm adapts SBM priors for PnP methods by determining a scaling factor <i>c</i> and the corresponding time-step <i>t</i> for a given noise level <i>&sigma;</i>. This ensures consistency between the noise perturbation used in score training and the PnP algorithm.</p>
+            </div>
+        </div>
+    
+
+ 
+    </div>
+
+    <div class="section">
+    <h2> Numerical Evaluations </h2>
+    <hr>
+    <div class="row align-items-center justify-content-center text-center" style="display: flex; flex-direction: column;">
+        <img src="img/table.png" style="width:40%" alt="Banner">
+        <p>
+            <b>Table 1:</b> Quantitative evaluation of image deblurring across four setups for each PnP method. The denoiser types are indicated in
+parentheses: PnP methods using DnCNN and DRUNet represent classical approaches, while those using SBM denote PnP using a
+VP diffusion model as the denoiser.
+        </p>
+    </div>
+</div>
+
+
+    </div>
+
+
+
+
+
+    </div>
+    
+    <div class="section">
+        <h2>Paper</h2>
+        <hr>
+        <div>
+            <div class="list-group">
+                <a href="https://arxiv.org/abs/2411.18702"
+                   class="list-group-item">
+                    <img src="img/paper_thumbnail.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+        <div class="bibtexsection">
+	@article{park2024pnpscore,
+	  title={Plug-and-Play Priors as a Score-Based Method},
+	  author={Park, Chicago Y.
+		and Hu, Yuyang
+		and McCann, Michael T.
+		and Garcia-Cardona, Cristina
+		and Wohlberg, Brendt
+		and Kamilov, Ulugbek S.},
+	  journal={arXiv preprint arXiv:},
+	  year={2024}
+	}        </div>
+    </div>
+
+    <hr>
+
+   <footer>
+       <p>Acknoledgement: Web template from <a href="https://www.vincentsitzmann.com/siren/">SIREN</a></p>
+   </footer>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
